@@ -7,7 +7,11 @@ public class PlayerController : MonoBehaviour {
     public float moveSpeed = 10;
     public float rotateSpeed = 10;
     public Camera viewCamera;
+    public Transform sword;
+    public Transform rocket;
+    public float rocketSpeed = 30f;
 
+    
     // Use this for initialization
     void Start () {
 		
@@ -28,6 +32,37 @@ public class PlayerController : MonoBehaviour {
         Vector3 moveVelocity = moveInput.normalized * moveSpeed * Time.deltaTime;
         transform.Translate(moveVelocity);
         transform.Rotate(0, Input.GetAxis("RightHorizontal"), 0);
-       
+
+
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Debug.Log("Fire1");
+        }
+
+        if (Input.GetButtonDown("Fire2"))
+        {
+            Instantiate(sword, transform.position, Quaternion.identity);
+        }
+        if (Input.GetButtonDown("Fire3"))
+        {
+            Debug.Log("Fire3");
+        }
+        if (Input.GetButtonDown("Jump"))
+        {
+            FireRocket();
+        }
+    }
+
+    void FireRocket()
+    {
+        Vector3 fp = new Vector3(transform.position.x, transform.position.y+0.5f, transform.position.z);
+        Transform rocketClone = (Transform)Instantiate(rocket, fp, Quaternion.identity);
+
+        Rigidbody rb = rocketClone.GetComponent<Rigidbody>();
+
+        rb.velocity = transform.forward * rocketSpeed;
+
+        // You can also access other components / scripts of the clone
+        //rocketClone.GetComponent<RocketBehaviour>().init();
     }
 }

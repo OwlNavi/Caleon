@@ -61,7 +61,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scenes\01_main\Enemies\EnemyBehaviour.cs" />
+    <Compile Include="Assets\Scenes\01_main\Environment\VoidDelete.cs" />
+    <Compile Include="Assets\Scenes\01_main\Player\JumpScript.cs" />
     <Compile Include="Assets\Scenes\01_main\Player\PlayerController.cs" />
+    <Compile Include="Assets\Scenes\01_main\Player\RocketBehaviour.cs" />
     <Compile Include="Assets\Scenes\01_main\Player\ThirdPersonCamera.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/cwagt/Documents/Caleon/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
